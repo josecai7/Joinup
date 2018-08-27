@@ -11,7 +11,7 @@ namespace Joinup
 		{
 			InitializeComponent();
 
-			MainPage = new LoginPage();
+			MainPage = new LoginView();
 		}
 
 		protected override void OnStart ()
