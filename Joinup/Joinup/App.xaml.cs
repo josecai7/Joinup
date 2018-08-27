@@ -1,3 +1,4 @@
+using Joinup.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,7 +11,7 @@ namespace Joinup
 		{
 			InitializeComponent();
 
-			MainPage = new Login();
+			MainPage = new LoginPage();
 		}
 
 		protected override void OnStart ()
