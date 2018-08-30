@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctrls="clr-namespace:Joinup.Controls;assembly=Joinup"
              x:Class="Joinup.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -180,8 +181,43 @@
                     Value="{StaticResource FiraSansRegular}" />
             </Style>
 
+            <Style x:Key="BaseEntryStyle"
+                   TargetType="{x:Type ctrls:ExtendedEntry}">
+                <Setter Property="FontFamily"
+                    Value="{StaticResource PoppinsRegular}" />
+                <Setter Property="BackgroundColor"
+                        Value="Transparent" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+                <Setter Property="PlaceholderColor"
+                        Value="{StaticResource WhiteColor}" />
+                <Setter Property="HeightRequest"
+                        Value="44" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource LargeSize}" />
+                <Setter Property="HorizontalOptions"
+                        Value="FillAndExpand" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+                <Setter Property="Opacity"
+                        Value="0.6" />
+                <Setter Property="FocusLineColor"
+                        Value="{StaticResource LightOrangeColor}" />
+                <Setter Property="InvalidLineColor"
+                        Value="{StaticResource ValidationErrorColor}" />
+                <Style.Triggers>
+                    <Trigger TargetType="Entry"
+                             Property="IsFocused" 
+                             Value="True">
+                        <Setter Property="Opacity" Value="1" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
 
-        <Style x:Key="BaseButtonStyle"
+            <Style TargetType="{x:Type ctrls:ExtendedEntry}"
+                   BasedOn="{StaticResource BaseEntryStyle}" />
+
+            <Style x:Key="BaseButtonStyle"
                    TargetType="{x:Type Button}">
             <Setter Property="BorderRadius" Value="0" />
             <Setter Property="HeightRequest" Value="73" />

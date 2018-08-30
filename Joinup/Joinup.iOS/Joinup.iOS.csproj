@@ -95,6 +95,11 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\fonts\Poppins-Medium.ttf" />
+    <BundleResource Include="Resources\fonts\Poppins-Regular.ttf" />
+    <BundleResource Include="Resources\fonts\Poppins-SemiBold.ttf" />
+    <BundleResource Include="Resources\fonts\Poppins-Bold.ttf" />
+    <BundleResource Include="Resources\fonts\Poppins-Light.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

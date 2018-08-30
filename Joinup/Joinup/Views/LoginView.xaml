@@ -18,23 +18,9 @@
             <xamanimation:StoryBoard 
                 x:Key="LogoAnimation"    
                 Target="{x:Reference Logo}">
-                <xamanimation:TranslateToAnimation TranslateY="500" Duration="0" />
-                <xamanimation:TranslateToAnimation TranslateY="0" Easing="SpringOut" Duration="750" />
+                <xamanimation:TranslateToAnimation TranslateY="-200" Duration="0" />
+                <xamanimation:TranslateToAnimation TranslateY="0" Easing="SinInOut" Duration="2000" />
             </xamanimation:StoryBoard>
-
-            <Style x:Key="LogoStyle" 
-                   TargetType="Image">
-                <Setter Property="Aspect" 
-                        Value="AspectFit" />
-                <Setter Property="HeightRequest" 
-                        Value="95" />
-                <Setter Property="Margin" 
-                        Value="30, 16" />
-                <Setter Property="HorizontalOptions"
-                        Value="Center" />
-                <Setter Property="VerticalOptions"
-                        Value="Start" />
-            </Style>
 
             <Style x:Key="HeaderTextStyle" 
                    TargetType="Label"
@@ -113,6 +99,7 @@
                 Animation="{StaticResource LogoAnimation}" />
         </EventTrigger>
     </ContentPage.Triggers>
+    
     <ContentPage.Content>
         <Grid>
             <Grid 
@@ -121,18 +108,20 @@
                     <RowDefinition Height="6*" />
                     <RowDefinition Height="4*" />
                 </Grid.RowDefinitions>
-                <!-- Top image -->
+                
+                <!-- Top image (Row 0)-->
                 <ffimageloading:CachedImage 
                     Grid.Row="0"
                     Aspect="AspectFill">
                     <ffimageloading:CachedImage.Source>
                         <OnPlatform x:TypeArguments="ImageSource">
-                            <On Platform="Android, iOS" Value="img_header_background_1" />
+                            <On Platform="Android, iOS" Value="img_header_background_2" />
                             <On Platform="UWP" Value="Assets/img_header_background_2.png" />
                         </OnPlatform>
                     </ffimageloading:CachedImage.Source>
                 </ffimageloading:CachedImage>
-                <!-- Sign in form -->
+                
+                <!-- Sign in form (Row 0) -->
                 <Grid
                     Margin="38, 38, 38, 60"
                     RowSpacing="0"
@@ -149,32 +138,26 @@
                     <Grid
                         Grid.Row="0">
                         <Image
-                            x:Name="Logo"
-                            Style="{StaticResource LogoStyle}">
+                            x:Name="Logo">
                             <Image.Source>
                                 <OnPlatform x:TypeArguments="ImageSource">
                                     <On Platform="Android, iOS" Value="logo_splash" />
                                     <On Platform="UWP" Value="Assets/logo_splash.png" />
                                 </OnPlatform>
                             </Image.Source>
-                            <Image.GestureRecognizers>
-                                <TapGestureRecognizer 
-                                    NumberOfTapsRequired="2" 
-                                    Command="{Binding SettingsCommand}" />
-                            </Image.GestureRecognizers>
                             <Image.HeightRequest>
                                 <OnIdiom
-                                    x:TypeArguments="x:Double" 
-                                    Desktop="100"
-                                    Tablet="100"
-                                    Phone="95"/>
+                                x:TypeArguments="x:Double" 
+                                    Desktop="70"
+                                    Tablet="70"
+                                    Phone="50"/>
                             </Image.HeightRequest>
                             <Image.VerticalOptions>
                                 <OnIdiom
                                     x:TypeArguments="LayoutOptions" 
-                                    Desktop="End"
-                                    Tablet="End"
-                                    Phone="Start"/>
+                                    Desktop="Center"
+                                    Tablet="Center"
+                                    Phone="Center"/>
                             </Image.VerticalOptions>
                         </Image>
                     </Grid>
@@ -283,7 +266,9 @@
                         </Label>
                     </Grid>
                 </Grid>
-                <!-- Sign up labels -->
+        
+                
+                <!-- Sign up labels (Row 1)-->
                 <Grid 
                     Grid.Row="1"
                     BackgroundColor="{StaticResource WhiteColor}">
@@ -311,6 +296,7 @@
                             Style="{StaticResource SignUpAccentTextStyle}"/>
                     </StackLayout>
                 </Grid>
+                
                 <!-- Sign in buttons -->
                 <StackLayout  
                     x:Name="SignButtons"
@@ -372,6 +358,8 @@
                     </ctrls:ButtonFrame>
                 </StackLayout>
             </Grid>
+            
+            
             <ActivityIndicator 
                 Color="{StaticResource AccentColor}"
                 IsRunning="{Binding IsBusy}" 

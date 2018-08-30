@@ -14,15 +14,16 @@ namespace Joinup.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
+                TabLayoutResource = Resource.Layout.Tabbar;
+                ToolbarResource = Resource.Layout.Toolbar;
 
-            base.OnCreate(bundle);
+                base.OnCreate( bundle );
 
-            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+                FFImageLoading.Forms.Platform.CachedImageRenderer.Init( true );
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+                global::Xamarin.Forms.Forms.Init( this, bundle );
+                LoadApplication( new App() );
+        
         }
     }
 }
