@@ -49,8 +49,10 @@
     <Compile Include="Controls\ButtonFrame.cs" />
     <Compile Include="Controls\ExtendedEntry.cs" />
     <Compile Include="Effects\UnderlineTextEffect.cs" />
+    <Compile Include="Infrastructure\InstanceLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>

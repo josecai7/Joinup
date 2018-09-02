@@ -5,6 +5,7 @@
              xmlns:ctrls="clr-namespace:Joinup.Controls;assembly=Joinup"
              xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"  
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"   
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
              x:Class="Joinup.Views.LoginView">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -100,7 +101,8 @@
         </EventTrigger>
     </ContentPage.Triggers>
     
-    <ContentPage.Content>
+    <ContentPage.Content
+        BindingContext="{Login}">
         <Grid>
             <Grid 
                 RowSpacing="0">
@@ -185,8 +187,7 @@
                         Grid.Row="2"
                         Placeholder="Username"
                         AutomationId="username"
-                        Text="{Binding UserName.Value, Mode=TwoWay}"
-                        IsValid="{Binding UserName.IsValid, Mode=TwoWay}">
+                        Text="{Binding UserName.Value, Mode=TwoWay}">
                         <ctrls:ExtendedEntry.HorizontalOptions>
                             <OnIdiom
                                 x:TypeArguments="LayoutOptions" 
@@ -226,8 +227,7 @@
                         IsPassword="True"                  
                         Placeholder="Password"
                         AutomationId="password"
-                        Text="{Binding Password.Value, Mode=TwoWay}" 
-                        IsValid="{Binding Password.IsValid, Mode=TwoWay}">
+                        Text="{Binding Password.Value, Mode=TwoWay}">
                         <ctrls:ExtendedEntry.HorizontalOptions>
                             <OnIdiom
                                 x:TypeArguments="LayoutOptions" 
@@ -266,36 +266,7 @@
                         </Label>
                     </Grid>
                 </Grid>
-        
-                
-                <!-- Sign up labels (Row 1)-->
-                <Grid 
-                    Grid.Row="1"
-                    BackgroundColor="{StaticResource WhiteColor}">
-                    <StackLayout
-                        Style="{StaticResource SignUpPanelStyle}">
-                        <StackLayout.VerticalOptions>
-                            <OnIdiom
-                                x:TypeArguments="LayoutOptions" 
-                                Desktop="Start"
-                                Tablet="Start"
-                                Phone="End"/>
-                        </StackLayout.VerticalOptions>
-                        <StackLayout.Margin>
-                            <OnIdiom
-                                x:TypeArguments="Thickness" 
-                                Desktop="0, 200, 0, 0"
-                                Tablet="0, 200, 0, 0"
-                                Phone="0, 0, 0, 36"/>
-                        </StackLayout.Margin>
-                        <Label   
-                            Text="crear cuenta"
-                            Style="{StaticResource SignUpTextStyle}"/>
-                        <Label   
-                            Text="sing up"
-                            Style="{StaticResource SignUpAccentTextStyle}"/>
-                    </StackLayout>
-                </Grid>
+                       
                 
                 <!-- Sign in buttons -->
                 <StackLayout  
@@ -309,7 +280,8 @@
                             <On Platform="iOS, UWP" Value="8" />
                         </OnPlatform>
                     </StackLayout.Spacing>
-                    <ctrls:ButtonFrame>
+                    <ctrls:ButtonFrame
+                        HeightRequest="40">
                         <ctrls:ButtonFrame.HorizontalOptions>
                             <OnIdiom
                                 x:TypeArguments="LayoutOptions" 
@@ -324,7 +296,7 @@
                                 Tablet="320"/>
                         </ctrls:ButtonFrame.WidthRequest>
                         <Button    
-                            Text="SigninMayu"
+                            Text="Login"
                             AutomationId="signin"
                             Command="{Binding SignInCommand}"
                             BackgroundColor="{StaticResource WhiteColor}"
@@ -336,7 +308,8 @@
                         TextColor="{StaticResource BlackTextColor}"
                         FontFamily="{StaticResource PoppinsRegular}"
                         FontSize="{StaticResource MediumSize}"/>
-                    <ctrls:ButtonFrame>
+                    <ctrls:ButtonFrame
+                        HeightRequest="40">
                         <ctrls:ButtonFrame.HorizontalOptions>
                             <OnIdiom
                                 x:TypeArguments="LayoutOptions" 
@@ -351,11 +324,28 @@
                                 Tablet="320"/>
                         </ctrls:ButtonFrame.WidthRequest>
                         <Button   
-                            Text="Logearse con windows"
+                            Text="Registrarse"
                             Command="{Binding MicrosoftSignInCommand}"
                             BackgroundColor="{StaticResource BlueColor}"
                             TextColor="{StaticResource WhiteColor}" />
                     </ctrls:ButtonFrame>
+                    <StackLayout
+                        Orientation="Horizontal"                      
+                        HorizontalOptions="Center"
+                        VerticalOptions="FillAndExpand">
+                        <Label
+                            Text="¿Aún no tienes cuenta?"
+                            TextColor="{StaticResource BlackColor}"
+                            VerticalOptions="Center">
+                            
+                        </Label>
+                        <Label
+                            Text="Sign up"
+                            TextColor="{StaticResource OrangeColor}"
+                            VerticalOptions="Center">
+                            
+                        </Label>
+                    </StackLayout>
                 </StackLayout>
             </Grid>
             
