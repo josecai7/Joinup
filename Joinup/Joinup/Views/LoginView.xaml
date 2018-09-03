@@ -266,8 +266,7 @@
                         </Label>
                     </Grid>
                 </Grid>
-                       
-                
+
                 <!-- Sign in buttons -->
                 <StackLayout  
                     x:Name="SignButtons"
