@@ -9,9 +9,11 @@ namespace Joinup.Domain.Models
 {
     public class DataContext : DbContext
     {
-        public DataContext():base("DefaultConexion")
+        public DataContext():base("DefaultConnection")
         {
                 
         }
+
+        public System.Data.Entity.DbSet<Joinup.Common.Models.User> Users { get; set; }
     }
 }
